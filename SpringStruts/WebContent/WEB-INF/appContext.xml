@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="priceResource" class="com.virtual.price.resources.PriceResource">
+		<property name="priceBO" ref="priceBO" />
+	</bean>
+
+	<bean id="priceBO" class="com.virtual.price.bo.PriceBOImpl" />
+
+</beans>

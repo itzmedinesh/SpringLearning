@@ -1,0 +1,57 @@
+apply plugin: "war"
+apply plugin: 'jetty'
+apply plugin: "eclipse-wtp"
+
+group = "com.learning"
+version = 1.0
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+        resources {
+            srcDir 'resources'
+        }
+
+    }
+}
+
+project.webAppDirName = 'WebContent'
+
+repositories {
+	maven {
+		credentials {
+			username 'a185'
+			password 'Nexus123'
+		}
+		url "https://nexus.dev.global.tesco.org/nexus/content/repositories/central" }
+	maven {
+		credentials {
+			username 'a185'
+			password 'Nexus123'
+		}
+		url "https://nexus.dev.global.tesco.org/nexus/content/repositories/thirdparty" }
+}
+
+configurations { moreLibs }
+
+dependencies {
+	compile fileTree(dir: "WebContent/WEB-INF/lib", include: '*.jar')
+	compile 'org.springframework:spring-core:3.0.4.RELEASE'
+	compile 'org.apache.struts:struts2-core:2.3.24.1'
+	compile 'org.apache.struts:struts2-spring-plugin:2.3.24.1'
+	compile 'javax.servlet:jsp-api:2.0'
+
+	compile 'org.slf4j:slf4j-api:1.7.12'
+	compile 'org.slf4j:slf4j-simple:1.7.12'
+    testCompile 'junit:junit:4.9'
+}
+
+war {
+    exclude 'WEB-INF/lib/**'
+    exclude 'WEB-INF/classes/**'
+}
+
+jettyRunWar.contextPath = 'SpringStruts'
+jettyRun.httpPort = 8088
