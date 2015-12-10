@@ -8,7 +8,7 @@ public class PriceBOImpl implements PriceBO {
 	@Override
 	public Price findPriceByTpnb(String tpnb) throws PriceBusinessException {
 		Price price = new Price();
-
+		price.setTpnb(tpnb);
 		if (tpnb != null && tpnb.startsWith("0")) {
 			price.setRegPrice("150.5");
 		} else {

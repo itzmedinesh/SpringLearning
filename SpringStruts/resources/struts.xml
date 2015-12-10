@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="Price" extends="struts-default" namespace="/v3/price">
+	<package name="PriceResources" extends="struts-default" namespace="/">
 		<action name="tpnb" class="priceResource">
 			<result name="input">/InputTpn.jsp</result>
 			<result name="success">/InputTpn.jsp</result>

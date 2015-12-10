@@ -12,14 +12,19 @@
 	<div align="center">
 		<h1>Price Service</h1>
 		<h2>Find Price By TPNB</h2>
-		<s:form action="tpnb" method="post" namespace="/v3/price">
+		<s:form action="tpnb" method="post">
 			<s:textfield label="TPNB" name="product.tpnb" />
 			<s:submit value="Find" />
 		</s:form>
 	</div>
 
-	<s:bean name="com.virtual.price.to.Price" var="priceBean" />	
-	<s:property value="#priceBean.regPrice" />
-
+	<div align="left">
+		<h3>
+			Regular Price For TPNB :
+			<s:property value="price.tpnb" />
+			is
+			<s:property value="price.regPrice" />
+		</h3>
+	</div>
 </body>
 </html>
